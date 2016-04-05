@@ -10,9 +10,10 @@ import (
 	"time"
 )
 
+var DefaultRetryCount = 10
+var DefaultRetryDelay = 200
+
 const (
-	DefaultRetryCount = 10
-	DefaultRetryDelay = 200 // in Millisecond
 	ClockDriftFactor  = 0.01
 	UnlockScript      = `
         if redis.call("get", KEYS[1]) == ARGV[1] then
